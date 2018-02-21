@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoCWebApp", "LoCWebApp\LoCWebApp.csproj", "{EEA28C3C-6F70-4282-AB25-C6B5BF462E2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadBot_v4", "MadBot_v4\MadBot_v4.csproj", "{6BBA8ABF-A9A2-44B4-91C0-2FB5016F9AC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEA28C3C-6F70-4282-AB25-C6B5BF462E2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA28C3C-6F70-4282-AB25-C6B5BF462E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA28C3C-6F70-4282-AB25-C6B5BF462E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA28C3C-6F70-4282-AB25-C6B5BF462E2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BBA8ABF-A9A2-44B4-91C0-2FB5016F9AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BBA8ABF-A9A2-44B4-91C0-2FB5016F9AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BBA8ABF-A9A2-44B4-91C0-2FB5016F9AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BBA8ABF-A9A2-44B4-91C0-2FB5016F9AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5126AF89-BA47-4538-B5B1-8B7490230660}
+	EndGlobalSection
+EndGlobal

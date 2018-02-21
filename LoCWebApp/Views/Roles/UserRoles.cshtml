@@ -1,0 +1,93 @@
+﻿@model IEnumerable<LoCWebApp.Models.ApplicationRole>
+@{
+    ViewBag.Title = "UserRoles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    LoCWebApp.Models.ApplicationDbContext db = new LoCWebApp.Models.ApplicationDbContext();
+    List<SelectListItem> usersList = new List<SelectListItem>(), roleList = new List<SelectListItem>();
+    foreach(var user in db.Users.ToList())
+    {
+        usersList.Add(new SelectListItem
+        {
+            Value = user.Id,
+            Text = user.UserName
+        });
+    }
+    foreach(var role in Model)
+    {
+        roleList.Add(new SelectListItem
+        {
+            Text = role.Name,
+            Value = role.Id
+        });
+    }
+    string spanClass = "", message = "";
+    if (ViewBag.Message != null)
+    {
+        message = ViewBag.Message;
+    }
+    switch (ViewBag.StatusMessage)
+    {
+        case true:
+            spanClass = "success";
+            break;
+        case false:
+            spanClass = "danger";
+            break;
+        default:
+            spanClass = "";
+            break;
+    }
+}
+
+<h2>User's Roles</h2>
+<hr />
+<span class="@spanClass">@message</span><br />
+
+    @foreach (var role in Model)
+    {
+        <div class="col-md-6">
+            <table class="table table-bordered table-condensed">
+                <caption>@Model.SingleOrDefault(c => c.Id == role.Id).Name</caption>
+                <thead>
+                    <tr>
+                        <th style="text-align:center;">Users</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in role.Users.ToList())
+                    {
+                        <tr>
+                            <td>@db.Users.SingleOrDefault(c => c.Id == user.UserId).UserName</td>
+                            <td>@Html.ActionLink("Remove", "RemoveUserFromRole", routeValues: new { userId = user.UserId, roleName = role.Name })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+        </div>
+    }
+@using (Html.BeginForm(controllerName: "Roles", actionName: "AddUserToRole"))
+{
+    <div class="col-md-offset-1 col-md-11">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Username</label>
+            <div class="col-md-offset-2 col-md-10">
+                @Html.DropDownList("userId", usersList, htmlAttributes: new { id = "userId" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Role</label>
+            <div class="col-md-offset-2 col-md-10">
+                @Html.DropDownList("roleName", roleList, htmlAttributes: new { id = "roleName" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Add to Role" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

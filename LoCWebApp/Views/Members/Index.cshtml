@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Members";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron" style="background-color:transparent;color:orange;">
+    <div class="LoC-logo-div"><img class="LoC-logo" src="~/Images/Logo/tloc.jpg" /></div>
+</div>
+<hr />
+<div class="row" style="color:orange;">
+    <div class="col-md-12">
+        <h2 style="text-align:center;">Daily Checkup</h2>
+        <div class="col-md-12" style="display:inline-block">
+            <div class="col-md-3">
+                <span>Announcements</span>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-default" onclick="location.href='@Url.Action("KillList", "Members")'">Kill List</button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-default" onclick="location.href='@Url.Action("Boards", "Members")'">Boards</button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-default" onclick="location.href='@Url.Action("Inbox", "Members", User.Identity.GetUserId())'">Inbox</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="col-md-12">
+        <div class="col-md-6">
+            Net Progress
+        </div>
+        <div class="col-md-6">
+            Land Progress
+        </div>
+    </div>
+    <div class="col-md-12">
+        Defending News 24 hrs
+    </div>
+</div>

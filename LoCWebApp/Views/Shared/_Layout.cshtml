@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - LoC</title>
+        @Styles.Render("~/Content/Site.css")
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")    
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Lords Of Chaos", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style="color:orange;" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Index", "Members")'">Home</button></li>
+                    }
+                    else
+                    {
+                        <li><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Index", "Home")'">Home</button></li>
+                    }
+                    <li><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("About", "Home")'">About</button></li>
+                    <li><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Contact", "Home")'">Contacts</button></li>
+                    <li>
+                        <button type="button" class="btn dropdown-toggle my-navbar-dropdown" data-toggle="dropdown">Members<span class="caret"></span></button>
+                            <ul class="my-dropdown-list dropdown-menu">
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("", "Relations")'">Pacts</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Ranks", "Members")'">Rankings</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("VotingBooth", "Members")'">Voting Booth</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("TagPass", "Members")'">Tag & Pass</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Boards", "Members")'">Boards</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("MembersList", "Members")'">Members List</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("KillList", "Members")'">Kill List</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("AttackCalc", "Members")'">Attack Calc</button></li>
+                            </ul>                        
+                    </li>
+                    <li>
+                        <button type="button" class="btn dropdown-toggle my-navbar-dropdown" data-toggle="dropdown">Reports<span class="caret"></span></button>
+                        <ul class="dropdown-menu my-dropdown-list">
+                            <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Country", "Reports")'">Country</button></li>
+                            <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("News", "Reports")'">News</button></li>
+                            <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("TagChanges", "Reports")'">Tag Changes</button></li>
+                            <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Market", "Reports")'">Market</button></li>
+                            <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Online", "Reports")'">Online</button></li>
+                        </ul>
+                    </li>
+                    @if (User.IsInRole("Leader"))
+                    {
+                        <li>
+                            <button type="button" class="btn dropdown-toggle my-navbar-dropdown" data-toggle="dropdown">Manage<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Users", "Manage")'">Users</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("UserRoles", "Roles")'">User's Roles</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Applications", "Manage")'">Applications</button></li>
+                                <li class="my-dropdown-list-item"><button class="btn my-navbar-dropdown" onclick="location.href='@Url.Action("Announcements", "Manage")'">Announcements</button></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mads EE Hosting&nbsp;&nbsp;&nbsp;&nbsp;<a href="~/Home/Email/MadNudist">Email MadNudist</a></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /*background-image: url('../Images/Background/chaos-warhammer-40000-2629.jpg');*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    color: orange;
+    min-height: 600px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+@media (min-width: 1200px) 
+{
+    .body-content{
+        margin-top:0px;
+    }
+}
+@media (max-width: 1199px) {
+    .body-content {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .my-dropdown-list-item {
+        padding-left: 40px;
+    }
+
+    .my-navbar-dropdown {
+        margin-top: 7px;
+        margin-right: 10px;
+    }
+
+    .my-dropdown-list {
+        color: white;
+    }
+
+    .LoC-logo {
+        width: 450px;
+        height: 100px;
+    }
+
+    .LoC-logo-div {
+        height: 100px;
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .my-dropdown-list {
+        background-color: transparent;
+        border: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .my-dropdown-list-item {
+    }
+    .my-navbar-dropdown {
+        margin-top: 7px;
+        margin-right: 10px;
+    }
+    .LoC-logo {
+        width: 650px;
+        height: 120px;
+    }
+    .LoC-logo-div {
+        height: 120px;
+        padding-left: 140px;
+    }
+}
+
+@media (max-width: 360px)
+{
+    .LoC-logo {
+        width: 250px;
+        height: 100px;
+    }
+    .LoC-logo-div {
+        height: 100px;
+    }
+}
+

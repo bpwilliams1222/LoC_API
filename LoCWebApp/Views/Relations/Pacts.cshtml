@@ -1,0 +1,65 @@
+﻿@model IEnumerable<LoCWebApp.Models.Relation>
+
+@{
+    ViewBag.Title = "Pacts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string msg = "";
+}
+
+<h2>Pacts</h2>
+<hr />
+@Html.ActionLink("New Relation", "New")
+<br />
+<table class="table table-bordered" style="background-color:transparent;">
+    <tr>
+        <th width="25%">
+            @Html.DisplayNameFor(model => model.Tag)
+        </th>
+        <th width="25%">
+            @Html.DisplayNameFor(model => model.PactType)
+        </th>
+        <th width="25%">
+            @Html.DisplayNameFor(model => model.SelfRenewing)
+        </th>
+        <th width="25%"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td colspan="4">
+            <table class="table" style="background-color:transparent;">
+                <tr>
+                    <td width="25%">
+                        @Html.DisplayFor(modelItem => item.Tag)
+                    </td>
+                    <td width="25%">
+                        @Html.DisplayFor(modelItem => item.PactType)
+                    </td>
+                    <td width="25%">
+                        @if(item.SelfRenewing)
+                        {
+                            msg = "Yes";
+                        }
+                        else
+                        {
+                            msg = "No";
+                        }
+                        @msg
+                    </td>
+                    <td width="25%">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Tag })
+                    </td>
+                </tr>
+                <tr>
+                    <td width="25%"></td>
+                    <td width="50%" colspan="2">
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    <td width="25%"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+}
+
+</table>
